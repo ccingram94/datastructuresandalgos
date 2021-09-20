@@ -30,6 +30,7 @@ export default function Home() {
             <Button className={styles.button}>Algorithms</Button>
           </Link>
         </div>
+        <Link href="/languages"><Button className={styles.button}>About Python and C++</Button></Link>
       </main>
 
       <footer className={styles.footer}>
