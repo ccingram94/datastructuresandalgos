@@ -27,6 +27,7 @@ export default function Languages() {
             <Card className={styles.card}>
                 <h2>Intro to Algorithms</h2>
                 <p>An <b>algorithm</b> is a set of instructions for solving a problem.</p>
+                <p>We measure the <b>time complexity</b> and <b>space complexity</b> of algorithms using <b>Big-O Notation</b>.</p>
             </Card>
         </div>
       </main>

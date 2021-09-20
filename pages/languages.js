@@ -26,12 +26,16 @@ export default function Languages() {
         <div className={styles.row}>
             <Card className={styles.card}>
                 <h2>Python</h2>
-                <p>Python is a high level programming language. Python is easier than C++ because it abstracts away lower level concerns like memory allocation and management.</p>
-                <p></p>
+                <p>Python is a simple high-level <b>object-oriented</b> programming language that makes coding easy. </p>
+                <p>Python is <b>interpreted</b> rather than compiled.</p>
+                <p>Python is distinguished by its use of <b>whitespace</b>. </p>
             </Card>
             <Card className={styles.card}>
                 <h2>C++</h2>
-                <p>C++ is also a high level language, but it retains lower-level features like memory allocation and management.</p>
+                <p>C++ is also a high-level <b>object-oriented</b> language, but it retains lower-level features like <b>memory allocation and management</b> that make it <b> faster than Python</b>.</p>
+                <p>C++ is <b>compiled</b> rather than interpreted; compiler <b>directives</b> in the file are preceded by <b>#</b> like so: <b>"#include {"<iostream>"}"</b></p>
+                <p>C++ originated as an object-oriented extension to C (sometimes called "C with classes"). </p>
+                <p>C++ uses <b>curly braces</b>, not whitespace.</p>
             </Card>
         </div>
       </main>

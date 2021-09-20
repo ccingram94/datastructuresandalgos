@@ -8,7 +8,7 @@ import styles from '../styles/Home.module.css'
 import { withTheme } from '@emotion/react'
 
 
-export default function Datastructures() {
+export default function LinkedList() {
   return (
     <div className={styles.container}>
       <Head>
@@ -19,37 +19,24 @@ export default function Datastructures() {
       <main className={styles.main}>
       <Link href="/">
         <h1 className={styles.title}>
-          ✨ data structures ✨
+          ✨ linked list ✨
         </h1>
         </Link>
-        <Link href="/languages">
-          <p className={styles.subtitle}> what are data structures?</p>
+        <Link href="/">
+          <p className={styles.subtitle}> linear data in contiguous memory locations</p>
         </Link>
         <div className={styles.row}>
             <Card className={styles.card}>
                 <h2>Intro to Data Structures</h2>
                 <p><b>Data Structures</b> are useful ways of storing data.  An <b>Abstract Data Type</b> describes how data is stored and manipulated (but not its exact implementation).</p>
-                <p>Object-oriented languages like Python and C++ usually implement data structures as a <b>class</b> and their operations as the <b>class methods</b>.</p>
                 <p>The most common data structures are <b>arrays</b> (or strings), <b>stacks</b>, <b>queues</b>, <b>linked lists</b>, <b>trees</b>, and <b>hash tables</b> (also called "hash maps").</p>
                 <div className={styles.row}>
-                    <Link href="/array">
-                        <Button className={styles.button}>Array</Button>
-                    </Link>
-                    <Link href="/stack">
-                        <Button className={styles.button}>Stack</Button>
-                    </Link>
-                    <Link href="/queue">
-                        <Button className={styles.button}>Queue</Button>
-                    </Link>
-                    <Link href="/linkedlist">
-                        <Button className={styles.button}>Linked List</Button>
-                    </Link>
-                    <Link href="/tree">
-                        <Button className={styles.button}>Tree</Button>
-                    </Link>
-                    <Link href="/hashtable">
-                        <Button className={styles.button}>Hash Table</Button>
-                    </Link>
+                    <Button className={styles.button}>Array</Button>
+                    <Button className={styles.button}>Stack</Button>
+                    <Button className={styles.button}>Queue</Button>
+                    <Button className={styles.button}>Linked List</Button>
+                    <Button className={styles.button}>Tree</Button>
+                    <Button className={styles.button}>Hash Table</Button>
                 </div>
             </Card>
         </div>
