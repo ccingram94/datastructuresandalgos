@@ -53,7 +53,7 @@ export default function Array() {
                     <pre>
                       <code>
                         <p># create a list called examplearray</p>
-                        <p>examplearray = [2, "hello world!", 8.35, true]</p><br/>
+                        <p>examplearray = [2, "hello world!", 8.35, True]</p><br/>
                         <p># store value 11 at index 0 (the first element):</p>
                         <p>examplearray[0] = 11</p><br />
                         <p># copy value at index 0 to variable x:</p>

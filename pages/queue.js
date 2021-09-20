@@ -29,7 +29,7 @@ export default function Stack() {
             <Card className={styles.card}>
                 <h2>Intro to Queues</h2>
                 <p>A <b>queue</b> is a <b>First-In-First-Out (FIFO)</b> array.  Elements are <b>added add the "back"</b> and <b>removed at the "front"</b> of the queue.</p>
-                <p>Queue functions include <b>push</b> (add item), <b>pop</b> (remove item), <b>peek</b> (see top item), and <b>isEmpty</b> (returns true or false).</p>
+                <p>Queue functions include <b>enqueue</b> (add item), <b>dequeue</b> (remove item), <b>peek</b> (see front item), and <b>isEmpty</b> (returns true or false).</p>
                 <p>In both Python and C++, we create a "queue" class which instantiates a queue object as a list (Python) or array (C++).</p>
                 <p>You may also be interested in its LIFO equivalent, the Stack: <Link href="/stack"><Button className={styles.button}>Stack</Button></Link></p>
             </Card>
@@ -39,23 +39,23 @@ export default function Stack() {
                   <h2>Python</h2>
                   <p>Python queues are instantiated as <b>lists</b>.</p>
                   <p>The constructor method <b>__init__(self)</b> creates an empty list called "items".</p>
-                  <p> We can push a new element to the top using Python's <b>append ( ) </b> list method.</p>
-                  <p> We can pop the top element off by using Python's <b>pop ( ) </b> list method.</p>
-                  <p> We can peek by simply returning the last element of the list (index -1). </p>
+                  <p> We can enqueue a new element at the back (index 0) using Python's <b>insert (index, item) </b> list method.</p>
+                  <p> We can dequeue the front element using Python's <b>pop ( ) </b> list method.</p>
+                  <p> We can peek by simply returning the front (last) element of the list (index -1). </p>
                   <p> We can check if the list is empty by comparing it to an empty list.</p>
                   <br />
                   <div className={styles.code}>
-                    <h2>stack.py</h2>
+                    <h2>queue.py</h2>
                     <pre>
                       <code>
-                        <p>class Stack:</p><br/>
+                        <p>class Queue:</p><br/>
                         <p>     def __init__(self):</p>
                         <p>          self.items = [] </p>
                         <br />
-                        <p>     def push(self, element): </p>
-                        <p>          self.items.append(element)</p>
+                        <p>     def enqueue(self, element): </p>
+                        <p>          self.items.insert(0, element)</p>
                         <br />
-                        <p>     def pop(self): </p>
+                        <p>     def dequeue(self): </p>
                         <p>          self.items.pop() </p> 
                         <br />
                         <p>     def peek(self): </p>
@@ -71,31 +71,32 @@ export default function Stack() {
                   <h2>C++</h2>
                   <p>C++ queues are instantiated as <b>arrays</b>.</p>
                   <p>Proper C++ architecture separates the class and methods into header (.h) and implementation (.cpp) files.</p>
-                  <p>We use the integer "top" to represent the index of the top element (-1 if the stack is empty). </p>
-                  <p>We specify the maximum elements of the array with STACKSIZE.</p>
+                  <p>We use the <b>integer "front"</b> to represent the <b>index of the front element</b> (-1 if the queue is empty). </p>
+                  <p>To make room to enqueue (at index 0), we use a loop to <b>shift all elements forward</b> one place.</p>
+                  <p>We specify the maximum elements of the array with QUEUESIZE.</p>
                 <div className={styles.row}>
                   <div className={styles.code}>
-                    <h2>stack.h</h2>
+                    <h2>queue.h</h2>
                     <pre>
                       <code>
-                        <p>#ifndef STACK_HEADER_FILE</p>
-                        <p>#define STACK_HEADER_FILE</p>
-                        <p>#define STACKSIZE 10</p>
+                        <p>#ifndef QUEUE_HEADER_FILE</p>
+                        <p>#define QUEUE_HEADER_FILE</p>
+                        <p>#define QUEUESIZE 10</p>
                         <br />
-                        <p>class Stack {"{"}</p>
+                        <p>class Queue {"{"}</p>
                         <p>     private:</p>
                         <p>           int top;</p>
-                        <p>           int intstack[STACKSIZE];</p>
+                        <p>           int intqueue[QUEUESIZE];</p>
                         <p>     public:</p>
                         <p>           Stack();</p>
                         <p>           ~Stack();</p>
-                        <p>           bool push(int);</p>
-                        <p>           int pop();</p>
+                        <p>           bool enqueue(int);</p>
+                        <p>           int dequeue();</p>
                         <p>           int peek();</p>
                         <p>           bool isEmpty();</p>
                         <p>{"}"}</p>
                         <br />
-                        <p>#endif //STACK_HEADER_FILE</p>
+                        <p>#endif //QUEUE_HEADER_FILE</p>
                       </code>
                     </pre>
                     </div>
@@ -103,50 +104,51 @@ export default function Stack() {
                     <h2>stack.cpp</h2>
                     <pre>
                       <code>
-                        <p>#include stack.h</p>
+                        <p>#include queue.h</p>
                         <p>#include {"<iostream>"}</p>
                         <br />
-                        <p>Stack::Stack( ) {"{"}</p>
-                        <p>     int top = -1;</p>
+                        <p>Queue::Queue( ) {"{"}</p>
+                        <p>     int front = -1;</p>
                         <p>{"}"}   </p>  
                         <br/>
-                        <p>Stack::~Stack( ) {"{"}</p>
+                        <p>Queue::~Queue( ) {"{"}</p>
                         <p>{"}"}   </p>  
                         <br/>
-                        <p>Stack::bool push(int i) {"{"}</p>
-                        <p>      bool pushed = false;</p>
-                        <p>      if (top {"< STACKSIZE"}) {"{"}</p>
-                        <p>           intstack[top++] = i;</p>
-                        <p>           pushed = true;</p>
+                        <p>Queue::bool enqueue(int i) {"{"}</p>
+                        <p>      bool enqueued = false;</p>
+                        <p>      if (front {"< QUEUESIZE"}) {"{"}</p>
+                        <p>           intqueue[0] = i;</p>
+                        <p>           front++;</p>
+                        <p>           enqueued = true;</p>
                         <p></p>
                         <p>       {"}"}</p>
                         <p>      else {"{"}</p>
-                        <p>           std::cout {"<<"} "Stack overflow!";</p>
+                        <p>           std::cout {"<<"} "Queue overflow!";</p>
                         <p>       {"}"}</p>
-                        <p>      return pushed;</p>
+                        <p>      return enqueued;</p>
                         <p>{"}"}   </p>  
                         <br/>
-                        <p>Stack::int pop( ) {"{"}</p>
-                        <p>      if (top {">"} -1) {"{"}</p>
-                        <p>           return intstack[top];</p>
-                        <p>           top--;</p>
+                        <p>Queue::int dequeue( ) {"{"}</p>
+                        <p>      if (front {">"} -1) {"{"}</p>
+                        <p>           return intqueue[front];</p>
+                        <p>           front--;</p>
                         <p>      {"}"}</p>
                         <p>      else {"{"}</p>
-                        <p>           std::cout {"<<"} "Stack empty!";</p>
+                        <p>           std::cout {"<<"} "Queue empty!";</p>
                         <p>       {"}"}</p>
                         <p>{"}"}   </p>  
                         <br/>
-                        <p>Stack::int peek( ) {"{"}</p>
-                        <p>      if (top {">"} -1) {"{"}</p>
-                        <p>         return intstack[top];</p>
+                        <p>Queue::int peek( ) {"{"}</p>
+                        <p>      if (front {">"} -1) {"{"}</p>
+                        <p>         return intqueue[front];</p>
                         <p>       {"}"}</p>
                         <p>      else {"{"}</p>
-                        <p>           std::cout {"<<"} "Stack empty!";</p>
+                        <p>           std::cout {"<<"} "Queue empty!";</p>
                         <p>       {"}"}</p>
                         <p>{"}"}   </p>  
                         <br/>
-                        <p>Stack::bool isEmpty( ) {"{"}</p>
-                        <p>     return (top == -1);</p>
+                        <p>Queue::bool isEmpty( ) {"{"}</p>
+                        <p>     return (front == -1);</p>
                         <p>{"}"}   </p>  
                         <br/>
                       </code>
