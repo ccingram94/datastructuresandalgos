@@ -8,7 +8,7 @@ import styles from '../styles/Home.module.css'
 import { withTheme } from '@emotion/react'
 
 
-export default function Queue() {
+export default function Stack() {
   return (
     <div className={styles.container}>
       <Head>
@@ -23,22 +23,138 @@ export default function Queue() {
         </h1>
         </Link>
         <Link href="/">
-          <p className={styles.subtitle}> linear data in contiguous memory locations</p>
+          <p className={styles.subtitle}> First-In-First-Out Collection of Data</p>
         </Link>
-        <div className={styles.row}>
+        <div className={styles.column}>
             <Card className={styles.card}>
-                <h2>Intro to Data Structures</h2>
-                <p><b>Data Structures</b> are useful ways of storing data.  An <b>Abstract Data Type</b> describes how data is stored and manipulated (but not its exact implementation).</p>
-                <p>The most common data structures are <b>arrays</b> (or strings), <b>stacks</b>, <b>queues</b>, <b>linked lists</b>, <b>trees</b>, and <b>hash tables</b> (also called "hash maps").</p>
-                <div className={styles.row}>
-                    <Button className={styles.button}>Array</Button>
-                    <Button className={styles.button}>Stack</Button>
-                    <Button className={styles.button}>Queue</Button>
-                    <Button className={styles.button}>Linked List</Button>
-                    <Button className={styles.button}>Tree</Button>
-                    <Button className={styles.button}>Hash Table</Button>
-                </div>
+                <h2>Intro to Queues</h2>
+                <p>A <b>queue</b> is a <b>First-In-First-Out (FIFO)</b> array.  Elements are <b>added add the "back"</b> and <b>removed at the "front"</b> of the queue.</p>
+                <p>Queue functions include <b>push</b> (add item), <b>pop</b> (remove item), <b>peek</b> (see top item), and <b>isEmpty</b> (returns true or false).</p>
+                <p>In both Python and C++, we create a "queue" class which instantiates a queue object as a list (Python) or array (C++).</p>
+                <p>You may also be interested in its LIFO equivalent, the Stack: <Link href="/stack"><Button className={styles.button}>Stack</Button></Link></p>
             </Card>
+              <h2>Implementation</h2>
+              <div className={styles.row}>
+                <Card className={styles.card}>
+                  <h2>Python</h2>
+                  <p>Python queues are instantiated as <b>lists</b>.</p>
+                  <p>The constructor method <b>__init__(self)</b> creates an empty list called "items".</p>
+                  <p> We can push a new element to the top using Python's <b>append ( ) </b> list method.</p>
+                  <p> We can pop the top element off by using Python's <b>pop ( ) </b> list method.</p>
+                  <p> We can peek by simply returning the last element of the list (index -1). </p>
+                  <p> We can check if the list is empty by comparing it to an empty list.</p>
+                  <br />
+                  <div className={styles.code}>
+                    <h2>stack.py</h2>
+                    <pre>
+                      <code>
+                        <p>class Stack:</p><br/>
+                        <p>     def __init__(self):</p>
+                        <p>          self.items = [] </p>
+                        <br />
+                        <p>     def push(self, element): </p>
+                        <p>          self.items.append(element)</p>
+                        <br />
+                        <p>     def pop(self): </p>
+                        <p>          self.items.pop() </p> 
+                        <br />
+                        <p>     def peek(self): </p>
+                        <p>          return self.items[-1]</p>
+                        <br />
+                        <p>     def isEmpty(self): </p>
+                        <p>          return self.items == [] </p>
+                      </code>
+                    </pre>
+                  </div>
+                </Card>
+                <Card className={styles.card}>
+                  <h2>C++</h2>
+                  <p>C++ queues are instantiated as <b>arrays</b>.</p>
+                  <p>Proper C++ architecture separates the class and methods into header (.h) and implementation (.cpp) files.</p>
+                  <p>We use the integer "top" to represent the index of the top element (-1 if the stack is empty). </p>
+                  <p>We specify the maximum elements of the array with STACKSIZE.</p>
+                <div className={styles.row}>
+                  <div className={styles.code}>
+                    <h2>stack.h</h2>
+                    <pre>
+                      <code>
+                        <p>#ifndef STACK_HEADER_FILE</p>
+                        <p>#define STACK_HEADER_FILE</p>
+                        <p>#define STACKSIZE 10</p>
+                        <br />
+                        <p>class Stack {"{"}</p>
+                        <p>     private:</p>
+                        <p>           int top;</p>
+                        <p>           int intstack[STACKSIZE];</p>
+                        <p>     public:</p>
+                        <p>           Stack();</p>
+                        <p>           ~Stack();</p>
+                        <p>           bool push(int);</p>
+                        <p>           int pop();</p>
+                        <p>           int peek();</p>
+                        <p>           bool isEmpty();</p>
+                        <p>{"}"}</p>
+                        <br />
+                        <p>#endif //STACK_HEADER_FILE</p>
+                      </code>
+                    </pre>
+                    </div>
+                    <div className={styles.code}>
+                    <h2>stack.cpp</h2>
+                    <pre>
+                      <code>
+                        <p>#include stack.h</p>
+                        <p>#include {"<iostream>"}</p>
+                        <br />
+                        <p>Stack::Stack( ) {"{"}</p>
+                        <p>     int top = -1;</p>
+                        <p>{"}"}   </p>  
+                        <br/>
+                        <p>Stack::~Stack( ) {"{"}</p>
+                        <p>{"}"}   </p>  
+                        <br/>
+                        <p>Stack::bool push(int i) {"{"}</p>
+                        <p>      bool pushed = false;</p>
+                        <p>      if (top {"< STACKSIZE"}) {"{"}</p>
+                        <p>           intstack[top++] = i;</p>
+                        <p>           pushed = true;</p>
+                        <p></p>
+                        <p>       {"}"}</p>
+                        <p>      else {"{"}</p>
+                        <p>           std::cout {"<<"} "Stack overflow!";</p>
+                        <p>       {"}"}</p>
+                        <p>      return pushed;</p>
+                        <p>{"}"}   </p>  
+                        <br/>
+                        <p>Stack::int pop( ) {"{"}</p>
+                        <p>      if (top {">"} -1) {"{"}</p>
+                        <p>           return intstack[top];</p>
+                        <p>           top--;</p>
+                        <p>      {"}"}</p>
+                        <p>      else {"{"}</p>
+                        <p>           std::cout {"<<"} "Stack empty!";</p>
+                        <p>       {"}"}</p>
+                        <p>{"}"}   </p>  
+                        <br/>
+                        <p>Stack::int peek( ) {"{"}</p>
+                        <p>      if (top {">"} -1) {"{"}</p>
+                        <p>         return intstack[top];</p>
+                        <p>       {"}"}</p>
+                        <p>      else {"{"}</p>
+                        <p>           std::cout {"<<"} "Stack empty!";</p>
+                        <p>       {"}"}</p>
+                        <p>{"}"}   </p>  
+                        <br/>
+                        <p>Stack::bool isEmpty( ) {"{"}</p>
+                        <p>     return (top == -1);</p>
+                        <p>{"}"}   </p>  
+                        <br/>
+                      </code>
+                    </pre>
+                    </div>
+                  </div>
+                </Card>
+              </div>
         </div>
       </main>
 

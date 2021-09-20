@@ -23,13 +23,14 @@ export default function Array() {
         </h1>
         </Link>
         <Link href="/">
-          <p className={styles.subtitle}> collection of data in contiguous memory locations</p>
+          <p className={styles.subtitle}> a collection of data in contiguous memory locations</p>
         </Link>
         <div className={styles.column}>
             <Card className={styles.card}>
                 <h2>Intro to Arrays</h2>
-                <p>An <b>array</b> holds data "<b>elements</b>" in <b>contiguous memory</b> locations.</p>  
+                <p>An <b>array</b> is a collection of data "<b>elements</b>" in <b>contiguous memory</b> locations.</p>  
                 <p>This is called a <b>linear</b> data structure because elements retain or manipulate their position relative to other elements.</p>
+                <p>An element's position (<b>index</b>) in the array <b>starts at 0</b> (is "zero-indexed").</p>
                 <p>Common array-based data structures include <b>stacks</b> and <b>queues</b>.</p>
                 <div className={styles.row}>
                   <Link href="/stack">
@@ -45,18 +46,50 @@ export default function Array() {
               <Card className={styles.card}>
                 <h2>Python</h2>
                 <p>Python arrays are called <b>lists</b>.</p>
+                <p>Python lists can hold elements of <b>multiple types.</b></p>
                   <br />
                   <div className={styles.code}>
                     <h2>array.py</h2>
                     <pre>
                       <code>
-                        <p>class Stack:</p><br/>
+                        <p># create a list called examplearray</p>
+                        <p>examplearray = [2, "hello world!", 8.35, true]</p><br/>
+                        <p># store value 11 at index 0 (the first element):</p>
+                        <p>examplearray[0] = 11</p><br />
+                        <p># copy value at index 0 to variable x:</p>
+                        <p>x = examplearray[0]</p><br/>
+                        <p># create a multidimensional list: </p>
+                        <p>examplearray = [ [1, 7, 3], [80, 23, 2] ]</p>
                       </code>
                     </pre>
                   </div>
               </Card>
               <Card className={styles.card}>
                 <h2>C++</h2>
+                <p>C++ arrays hold only <b>elements of the same type</b>. </p>
+                <p>We must declare the array with the <b>max number of elements</b> it can hold.</p>
+                <p>(This is because C++ allocates memory for the array at compile time.)</p>
+                <div className={styles.code}>
+                    <h2>array.cpp</h2>
+                    <pre>
+                      <code>
+                        <p>// declare an array of integers (no more than 5): </p>
+                        <p>int examplearray[5];</p>
+                        <br />
+                        <p>// initialize array with values: </p>
+                        <p>int examplearray[5] = {"{28, 3, 91, 77, 12}"};</p>
+                        <br />
+                        <p>// store value 11 at index 3: </p>
+                        <p>examplearray[3] = 11;</p>
+                        <br />
+                        <p>// copy value at index 3 to variable x: </p>
+                        <p>x = examplearray[3];</p>
+                        <br />
+                        <p>// declare a multidimensional array: </p>
+                        <p>int examplearray[2][5];</p>
+                      </code>
+                    </pre>
+                  </div>
               </Card>
             </div>
         </div>

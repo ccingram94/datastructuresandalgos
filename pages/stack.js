@@ -23,7 +23,7 @@ export default function Stack() {
         </h1>
         </Link>
         <Link href="/">
-          <p className={styles.subtitle}> linear data in contiguous memory locations</p>
+          <p className={styles.subtitle}> Last-In-First-Out Collection of Data</p>
         </Link>
         <div className={styles.column}>
             <Card className={styles.card}>
@@ -72,7 +72,7 @@ export default function Stack() {
                   <p>C++ stacks are instantiated as <b>arrays</b>.</p>
                   <p>Proper C++ architecture separates the class and methods into header (.h) and implementation (.cpp) files.</p>
                   <p>We use the integer "top" to represent the index of the top element (-1 if the stack is empty). </p>
-                  <p>We specify the maximum elements of the array with MAX.</p>
+                  <p>We specify the maximum elements of the array with STACKSIZE.</p>
                 <div className={styles.row}>
                   <div className={styles.code}>
                     <h2>stack.h</h2>
@@ -80,12 +80,12 @@ export default function Stack() {
                       <code>
                         <p>#ifndef STACK_HEADER_FILE</p>
                         <p>#define STACK_HEADER_FILE</p>
-                        <p>#define MAX 10</p>
+                        <p>#define STACKSIZE 10</p>
                         <br />
                         <p>class Stack {"{"}</p>
                         <p>     private:</p>
                         <p>           int top;</p>
-                        <p>           int intstack[MAX];</p>
+                        <p>           int intstack[STACKSIZE];</p>
                         <p>     public:</p>
                         <p>           Stack();</p>
                         <p>           ~Stack();</p>
@@ -115,7 +115,7 @@ export default function Stack() {
                         <br/>
                         <p>Stack::bool push(int i) {"{"}</p>
                         <p>      bool pushed = false;</p>
-                        <p>      if (top {"< MAX"}) {"{"}</p>
+                        <p>      if (top {"< STACKSIZE"}) {"{"}</p>
                         <p>           intstack[top++] = i;</p>
                         <p>           pushed = true;</p>
                         <p></p>
