@@ -29,9 +29,6 @@ export default function Languages() {
                 <p>Python is a simple high-level <b>object-oriented</b> programming language that makes coding easy. </p>
                 <p>Python is <b>interpreted</b> rather than compiled.</p>
                 <p>Python is distinguished by its use of <b>whitespace</b>. </p>
-                <Link href="/python">
-                  <Button className={styles.button}>Python Basics</Button>
-                </Link>
             </Card>
             <Card className={styles.card}>
                 <h2>C++</h2>
@@ -39,9 +36,6 @@ export default function Languages() {
                 <p>C++ is <b>compiled</b> rather than interpreted; compiler <b>directives</b> in the file are preceded by <b>#</b> like so: <b>"#include {"<iostream>"}"</b></p>
                 <p>C++ originated as an object-oriented extension to C (sometimes called "C with classes"). </p>
                 <p>C++ uses <b>curly braces</b>, not whitespace.</p>
-                <Link href="/cpp">
-                  <Button className={styles.button}>C++ Basics</Button>
-                </Link>
             </Card>
         </div>
       </main>

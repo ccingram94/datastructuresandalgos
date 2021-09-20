@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
+import Table from '@mui/material/Table'
 import { createTheme } from '@mui/material/styles'
 import styles from '../styles/Home.module.css'
 import { withTheme } from '@emotion/react'
@@ -19,29 +20,20 @@ export default function Languages() {
       <main className={styles.main}>
         <Link href="/">
         <h1 className={styles.title}>
-          ✨ languages ✨
+          ✨ C++ ✨
         </h1>
         </Link>
-        <p className={styles.subtitle}> why Python and C++?</p>
+        <p className={styles.subtitle}> learn the basics of C++</p>
         <div className={styles.row}>
             <Card className={styles.card}>
-                <h2>Python</h2>
-                <p>Python is a simple high-level <b>object-oriented</b> programming language that makes coding easy. </p>
-                <p>Python is <b>interpreted</b> rather than compiled.</p>
-                <p>Python is distinguished by its use of <b>whitespace</b>. </p>
-                <Link href="/python">
-                  <Button className={styles.button}>Python Basics</Button>
-                </Link>
+                <h2>Intro to C++</h2>
+                <p>C++ was introduced in 1979 by Bjarne Stroustrup as a <b>fork of C</b> that introduced <b>object-oriented</b> features like classes.
+                Prominent features of C++ include compiler directives (using #include) and dynamic memory allocation and management. </p>
             </Card>
             <Card className={styles.card}>
-                <h2>C++</h2>
-                <p>C++ is also a high-level <b>object-oriented</b> language, but it retains lower-level features like <b>memory allocation and management</b> that make it <b> faster than Python</b>.</p>
-                <p>C++ is <b>compiled</b> rather than interpreted; compiler <b>directives</b> in the file are preceded by <b>#</b> like so: <b>"#include {"<iostream>"}"</b></p>
-                <p>C++ originated as an object-oriented extension to C (sometimes called "C with classes"). </p>
-                <p>C++ uses <b>curly braces</b>, not whitespace.</p>
-                <Link href="/cpp">
-                  <Button className={styles.button}>C++ Basics</Button>
-                </Link>
+                <h2>Variables and Type</h2>
+                <p>C++ variables require a <b>name</b> and <b>type</b>.  Basic types include <b>char</b> (single character, 1 byte), <b>string</b> (series of characters, size varies), <b>int</b> (integer number, 4 bytes), <b>float</b> ("floating-point" decimal number, 4 bytes), <b>double</b> (a doubly precise decimal, 8 bytes), or <b>bool</b> (boolean value of "true" or "false", 1 byte). Valid variable names contain only letters, digits, and underscores (_) and may not use special reserved names.</p>
+                <p></p>
             </Card>
         </div>
       </main>
