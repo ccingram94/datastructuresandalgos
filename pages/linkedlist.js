@@ -8,7 +8,7 @@ import styles from '../styles/Home.module.css'
 import { withTheme } from '@emotion/react'
 
 
-export default function LinkedList() {
+export default function Stack() {
   return (
     <div className={styles.container}>
       <Head>
@@ -23,22 +23,143 @@ export default function LinkedList() {
         </h1>
         </Link>
         <Link href="/">
-          <p className={styles.subtitle}> linear data in contiguous memory locations</p>
+          <p className={styles.subtitle}> Nodes and Pointers</p>
         </Link>
-        <div className={styles.row}>
+        <div className={styles.column}>
             <Card className={styles.card}>
-                <h2>Intro to Data Structures</h2>
-                <p><b>Data Structures</b> are useful ways of storing data.  An <b>Abstract Data Type</b> describes how data is stored and manipulated (but not its exact implementation).</p>
-                <p>The most common data structures are <b>arrays</b> (or strings), <b>stacks</b>, <b>queues</b>, <b>linked lists</b>, <b>trees</b>, and <b>hash tables</b> (also called "hash maps").</p>
-                <div className={styles.row}>
-                    <Button className={styles.button}>Array</Button>
-                    <Button className={styles.button}>Stack</Button>
-                    <Button className={styles.button}>Queue</Button>
-                    <Button className={styles.button}>Linked List</Button>
-                    <Button className={styles.button}>Tree</Button>
-                    <Button className={styles.button}>Hash Table</Button>
-                </div>
+                <h2>Intro to Linked Lists</h2>
+                <p>A <b>linked list</b> is a collection of <b>nodes</b> that hold <b>data</b> and a <b>pointer</b> to the next node.</p><br/>
+                <p>A <b>singly linked list's</b> nodes have <b>one pointer</b> (to the next node).</p>
+                <p>A <b>doubly linked list's</b> nodes have <b>two pointers</b> (to the next node and the previous node).</p>
+                <p>A <b>circular linked list</b> points from the last node back to the first node.</p><br />
+                <p>We can create a Linked List using a <b>Node class</b> (or <b>struct</b> in C++) and a <b>Linked List class</b>.</p>
+                <p>Linked list operations include <b>addNode( )</b>, <b>deleteNode( )</b>, <b>searchList( )</b>, and <b>isEmpty( )</b>.</p>
             </Card>
+              <h2>Implementation</h2>
+              <div className={styles.row}>
+                <Card className={styles.card}>
+                  <h2>Python</h2>
+                  <p>First we create a Node class.  Each list node will be object of this class.</p>
+                  <p>Each Node object has <b>data (self.data)</b> and a <b>pointer (self.next)</b> to the next node.</p><br />
+                  <p>Then we create the Linked List class with a <b>head node</b> (the first node).</p>
+                  <p>An empty Linked List's head will point to None; we use this for isEmpty ( ).</p>
+                  <p>Otherwise the head will point to the next node, letting us traverse the list.</p>
+                  <br />
+                  <p>We can <b>addNode( )</b> by using a temporary pointer to move nodes up.</p>
+                  <p>We can <b>deleteNode( )</b> by moving nodes down.</p>
+                  <div className={styles.code}>
+                    <h2>linkedlist.py</h2>
+                    <pre>
+                      <code>
+                        <p>class Node:</p><br/>
+                        <p>     def __init__(self, initialdata):</p>
+                        <p>          self.data = initialdata </p>
+                        <p>          self.next = None</p>
+                        <br />
+                        <p>class LinkedList:</p><br />
+                        <p>     def __init__(self):</p>
+                        <p>           self.head = None</p><br />
+                        <p>     def isEmpty(self):</p>
+                        <p>           return self.head == None</p>
+                      </code>
+                    </pre>
+                  </div>
+                </Card>
+                <Card className={styles.card}>
+                  <h2>C++</h2>
+                  <p>First we create the <b>Node struct</b> which holds <b>data</b> (of type integer) and a <b>pointer</b> (*next) to the next node.</p>
+                  <p>(We could also implement the Node as a class, but we'll use a struct for simplicity.)</p>
+                  <p>In an empty linked list, our head node's pointer will point to <b>NULL</b>.</p><br />
+                  <p>Second we create the <b>Linked List class</b> to instantiate and use our Node structs.</p>
+                <div className={styles.row}>
+                  <div className={styles.code}>
+                    <h2>node.h</h2>
+                    <pre>
+                      <code>
+                        <p>#ifndef NODE_HEADER_FILE</p>
+                        <p>#define NODE_HEADER_FILE</p>
+                        <br />
+                        <p>struct Node {"{"}</p>
+                        <p>     int data;</p>
+                        <p>     Node *next = NULL;</p>
+                        <p>{"}"}</p>
+                        <br />
+                        <p>#endif //NODE_HEADER_FILE</p>
+                      </code>
+                    </pre>
+                    </div>
+                    <div className={styles.code}>
+                    <h2>linkedlist.h</h2>
+                    <pre>
+                      <code>
+                        <p>#ifndef LINKEDLIST_HEADER_FILE</p>
+                        <p>#define LINKEDLIST_HEADER_FILE</p>
+                        <p>#include "node.h"</p>
+                        <br />
+                        <p>class LinkedList {"{"}</p>
+                        <p>     struct Node *head = NULL;</p>
+                        <p>{"}"}</p>
+                        <br />
+                        <p>#endif //LINKEDLIST_HEADER_FILE</p>
+                      </code>
+                    </pre>
+                    </div>
+                    <div className={styles.code}>
+                    <h2>linkedlist.cpp</h2>
+                    <pre>
+                      <code>
+                        <p>#include linkedlist.h</p>
+                        <p>#include {"<iostream>"}</p>
+                        <br />
+                        <p>Stack::Stack( ) {"{"}</p>
+                        <p>     int top = -1;</p>
+                        <p>{"}"}   </p>  
+                        <br/>
+                        <p>Stack::~Stack( ) {"{"}</p>
+                        <p>{"}"}   </p>  
+                        <br/>
+                        <p>Stack::bool push(int i) {"{"}</p>
+                        <p>      bool pushed = false;</p>
+                        <p>      if (top {"< STACKSIZE"}) {"{"}</p>
+                        <p>           intstack[top++] = i;</p>
+                        <p>           pushed = true;</p>
+                        <p></p>
+                        <p>       {"}"}</p>
+                        <p>      else {"{"}</p>
+                        <p>           std::cout {"<<"} "Stack overflow!";</p>
+                        <p>       {"}"}</p>
+                        <p>      return pushed;</p>
+                        <p>{"}"}   </p>  
+                        <br/>
+                        <p>Stack::int pop( ) {"{"}</p>
+                        <p>      if (top {">"} -1) {"{"}</p>
+                        <p>           return intstack[top];</p>
+                        <p>           top--;</p>
+                        <p>      {"}"}</p>
+                        <p>      else {"{"}</p>
+                        <p>           std::cout {"<<"} "Stack empty!";</p>
+                        <p>       {"}"}</p>
+                        <p>{"}"}   </p>  
+                        <br/>
+                        <p>Stack::int peek( ) {"{"}</p>
+                        <p>      if (top {">"} -1) {"{"}</p>
+                        <p>         return intstack[top];</p>
+                        <p>       {"}"}</p>
+                        <p>      else {"{"}</p>
+                        <p>           std::cout {"<<"} "Stack empty!";</p>
+                        <p>       {"}"}</p>
+                        <p>{"}"}   </p>  
+                        <br/>
+                        <p>Stack::bool isEmpty( ) {"{"}</p>
+                        <p>     return (top == -1);</p>
+                        <p>{"}"}   </p>  
+                        <br/>
+                      </code>
+                    </pre>
+                    </div>
+                  </div>
+                </Card>
+              </div>
         </div>
       </main>
 

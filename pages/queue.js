@@ -85,7 +85,7 @@ export default function Stack() {
                         <br />
                         <p>class Queue {"{"}</p>
                         <p>     private:</p>
-                        <p>           int top;</p>
+                        <p>           int front;</p>
                         <p>           int intqueue[QUEUESIZE];</p>
                         <p>     public:</p>
                         <p>           Stack();</p>
@@ -101,7 +101,7 @@ export default function Stack() {
                     </pre>
                     </div>
                     <div className={styles.code}>
-                    <h2>stack.cpp</h2>
+                    <h2>queue.cpp</h2>
                     <pre>
                       <code>
                         <p>#include queue.h</p>
