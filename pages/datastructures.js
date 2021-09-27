@@ -28,7 +28,8 @@ export default function Datastructures() {
         <div className={styles.row}>
             <Card className={styles.card}>
                 <h2>Intro to Data Structures</h2>
-                <p><b>Data Structures</b> are useful ways of storing data.  An <b>Abstract Data Type</b> describes how data is stored and manipulated (but not its exact implementation).</p>
+                <p><b>Data Structures</b> are useful ways of storing data.</p>
+                <p>An <b>Abstract Data Type</b> describes how data is stored and manipulated (but not its exact implementation).</p><br/>
                 <p>Object-oriented languages like Python and C++ usually implement data structures as a <b>class</b> and their operations as the <b>class methods</b>.</p>
                 <p>The most common data structures are <b>arrays</b> (or strings), <b>stacks</b>, <b>queues</b>, <b>linked lists</b>, <b>trees</b>, and <b>hash tables</b> (also called "hash maps").</p>
                 <div className={styles.row}>

@@ -40,13 +40,13 @@ export default function Stack() {
                 <Card className={styles.card}>
                   <h2>Python</h2>
                   <p>First we create a Node class.  Each list node will be object of this class.</p>
-                  <p>Each Node object has <b>data (self.data)</b> and a <b>pointer (self.next)</b> to the next node.</p><br />
-                  <p>Then we create the Linked List class with a <b>head node</b> (the first node).</p>
+                  <p>Each Node object has <b>data (self.data)</b> and a <b>pointer (self.next)</b> to the next node.</p>
+                  <p>Getter methods include getData( ) and getNext( ).</p>
+                  <p>Setter methods include setData( ) and setNext( ).</p><br />
+                  <p>We create the Linked List class with a <b>head node</b> (the first node).</p>
                   <p>An empty Linked List's head will point to None; we use this for isEmpty ( ).</p>
                   <p>Otherwise the head will point to the next node, letting us traverse the list.</p>
-                  <br />
-                  <p>We can <b>addNode( )</b> by using a temporary pointer to move nodes up.</p>
-                  <p>We can <b>deleteNode( )</b> by moving nodes down.</p>
+                  <p>(List traversal lets us count the number of nodes by incrementing a counter.)</p>
                   <div className={styles.code}>
                     <h2>linkedlist.py</h2>
                     <pre>
@@ -54,13 +54,43 @@ export default function Stack() {
                         <p>class Node:</p><br/>
                         <p>     def __init__(self, initialdata):</p>
                         <p>          self.data = initialdata </p>
-                        <p>          self.next = None</p>
+                        <p>          self.next = None</p><br />
+                        <p>     def getData(self):</p>
+                        <p>           return self.data</p><br />
+                        <p>     def getNext(self):</p>
+                        <p>           return self.next</p><br/>
+                        <p>     def setData(self, newdata):</p>
+                        <p>           self.data = newdata</p><br />
+                        <p>     def setNext(self, newnext):</p>
+                        <p>           self.next = newnext</p>
                         <br />
                         <p>class LinkedList:</p><br />
                         <p>     def __init__(self):</p>
                         <p>           self.head = None</p><br />
                         <p>     def isEmpty(self):</p>
-                        <p>           return self.head == None</p>
+                        <p>           return self.head == None</p><br />
+                        <p>     def addNode(self, newnodedata):</p>
+                        <p>            newnode = Node(newnodedata)</p>
+                        <p>            newnode.setNext(self.head)</p>
+                        <p>            self.head = newnode</p><br/>
+                        <p>     def deleteNode(self, givendata):</p>
+                        <p>             currentnode = self.head</p>
+                        <p>             while currentnode.data != givendata:</p>
+                        <p>                   currentnode = currentnode.getNext()</p><br/>
+                        <p>     def size(self):</p>
+                        <p>           counter = 0</p>
+                        <p>           currentnode = self.head</p>
+                        <p>           while currentnode != None:</p>
+                        <p>                 counter = counter + 1</p>
+                        <p>                 currentnode = currentnode.getNext()</p>
+                        <p>           return counter</p><br/>
+                        <p>      def search(self, givendata):</p>
+                        <p>           currentnode = self.head</p>
+                        <p>           while currentnode.data != None:</p>
+                        <p>               if currentnode.data == givendata:</p>
+                        <p>                   return currentnode</p>
+                        <p>               else:</p>
+                        <p>                    currentnode = currentnode.getNext()</p>
                       </code>
                     </pre>
                   </div>
