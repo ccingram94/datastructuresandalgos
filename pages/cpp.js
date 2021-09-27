@@ -32,9 +32,10 @@ export default function Languages() {
             </Card>
             <Card className={styles.card}>
                 <h2>Variables and Type</h2>
-                <p>C++ variables require a <b>name</b> and <b>type</b>.  Basic types include <b>char</b> (single character, 1 byte), <b>string</b> (series of characters, size varies), <b>int</b> (integer number, 4 bytes), <b>float</b> ("floating-point" decimal number, 4 bytes), <b>double</b> (a doubly precise decimal, 8 bytes), or <b>bool</b> (boolean value of "true" or "false", 1 byte). Valid variable names contain only letters, digits, and underscores (_) and may not use special reserved names.</p>
-                <p></p>
+                <p>C++ variables require a <b>name</b> and <b>type</b>. Variables may be of type <b>char</b> (single character, 1 byte), <b>string</b> (series of characters, size varies), <b>int</b> (integer number, 4 bytes), <b>float</b> ("floating-point" decimal number, 4 bytes), <b>double</b> (a doubly precise decimal, 8 bytes), or <b>bool</b> (boolean value of "true" or "false", 1 byte). Valid variable names contain only letters, digits, and underscores (_) and may not use special reserved names.</p>
+                <p>Note that in order to use strings (a class rather than a basic type), you will need to use the compiler directive <b>{"#include<string>"}</b>.</p>
             </Card>
+            
         </div>
       </main>
 
