@@ -29,7 +29,7 @@ export default function Array() {
             <Card className={styles.card}>
                 <h2>Intro to Arrays</h2>
                 <p>An <b>array</b> is a collection of data "<b>elements</b>" in <b>contiguous memory</b> locations.</p>  
-                <p>This is called a <b>linear</b> data structure because elements retain or manipulate their position relative to other elements.</p>
+                <p>It is a <b>linear</b> data structure because elements retain or manipulate their position relative to other elements.</p>
                 <p>An element's position (<b>index</b>) in the array <b>starts at 0</b> (is "zero-indexed").</p>
                 <p>Common array-based data structures include <b>stacks</b> and <b>queues</b>.</p>
                 <div className={styles.row}>
@@ -45,24 +45,25 @@ export default function Array() {
             <div className={styles.row}>
               <Card className={styles.card}>
                 <h2>Python</h2>
-                <p>Python arrays are called <b>lists</b>.</p>
+                <p>Python uses a form of array called a <b>list</b>.</p>
                 <p>Python lists can hold elements of <b>multiple types.</b></p>
                   <br />
                   <div className={styles.code}>
                     <h2>array.py</h2>
                     <pre>
                       <code>
-                        <p># create a list called examplearray</p>
-                        <p>examplearray = [2, "hello world!", 8.35, True]</p><br/>
+                        <p># create a list called examplelist</p>
+                        <p>examplelist = [2, "hello world!", 8.35, True]</p><br/>
                         <p># store value 11 at index 0 (the first element):</p>
-                        <p>examplearray[0] = 11</p><br />
+                        <p>examplelist[0] = 11</p><br />
                         <p># copy value at index 0 to variable x:</p>
-                        <p>x = examplearray[0]</p><br/>
+                        <p>x = examplelist[0]</p><br/>
                         <p># create a multidimensional list: </p>
-                        <p>examplearray = [ [1, 7, 3], [80, 23, 2] ]</p>
+                        <p>examplelist = [ [1, 7, 3], [80, 23, 2] ]</p>
                       </code>
                     </pre>
                   </div>
+                  <p>You could also import a classic array from the array module.</p>
               </Card>
               <Card className={styles.card}>
                 <h2>C++</h2>
@@ -73,7 +74,7 @@ export default function Array() {
                     <h2>array.cpp</h2>
                     <pre>
                       <code>
-                        <p>// declare an array of integers (no more than 5): </p>
+                        <p>// declare an array of integers (5): </p>
                         <p>int examplearray[5];</p>
                         <br />
                         <p>// initialize array with values: </p>
@@ -90,6 +91,7 @@ export default function Array() {
                       </code>
                     </pre>
                   </div>
+                  <p>You could also use an "arraylist" which works like a Python list.</p>
               </Card>
             </div>
         </div>
